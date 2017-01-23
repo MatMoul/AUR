@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# $1 : packageName
+
+# Help
+if [ "$1" == "--help" ]; then
+	echo "Help :"
+	echo "------"
+	echo pushpkg packageName
+	exit 0
+fi
+
+# Check dependencies
+if [ ! -f /usr/bin/mksrcinfo ]; then
+	echo "pkgbuild-introspection not installed"
+	echo
+	./pushpkg --help
+	exit 1
+fi
+
+# Check args
+if [ "$1" == "" ]; then
+	echo "No package selected"
+	echo
+	./pushpkg --help
+	exit 1
+fi
+if [ ! -d "$1" ]; then
+	echo "Unknow package"
+	echo
+	./pushpkg --help
+	exit 1
+fi
+
+# Check AUR access right (Need more work)
+read -p "Is key loaded ? (y/N)?" choice
+case "${choice}" in 
+  y|Y ) echo;;
+  * )
+		echo
+		./pushpkg --help
+		exit 1
+	;;
+esac
+
+# Prepare
+rm -Rf .tmp 2> /dev/null
+mkdir .tmp
+cd .tmp
+git clone ssh://aur@aur.archlinux.org/$1.git
+
+cd $1
+git rm *
+cp ../../$1/* .
+mksrcinfo
+git add *
+git commit -m "New version" .SRCINFO *
+
+# Push
+git push
+
+# Clean
+cd ../..
+rm -Rf .tmp
