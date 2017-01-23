@@ -26,8 +26,8 @@ build() {
 	# build with hidapi :
 	make
 	
-  # build with libusb :
-  # make LIB=libusb
+	# build with libusb :
+	# make LIB=libusb
 }
 
 package() {
