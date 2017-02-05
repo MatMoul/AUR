@@ -69,7 +69,7 @@ cd ${pkgname}
 git rm *
 cp ../../${pkgname}/* .
 mksrcinfo
-git add *
+git add .SRCINFO *
 git commit -m "New version" .SRCINFO *
 
 # Push
