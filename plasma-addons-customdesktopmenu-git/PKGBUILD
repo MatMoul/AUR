@@ -9,6 +9,7 @@ pkgdesc="Custom desktop menu for Plasma5"
 arch=('i686' 'x86_64')
 url="https://github.com/MatMoul/plasma-containmentactions-customdesktopmenu"
 license=('GPL2')
+depends=('plasma-desktop')
 makedepends=('git' 'make' 'cmake' 'extra-cmake-modules')
 install=${pkgname}.install
 options=(!emptydirs)
