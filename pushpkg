@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# $1 : packageName
-
 # Help
 if [ "$1" == "--help" ]; then
 	echo "Help :"
@@ -25,6 +23,8 @@ if [ "$1" == "" ]; then
 	./pushpkg --help
 	exit 1
 fi
+
+# Check package
 if [ ! -d "$1" ]; then
 	echo "Unknow package"
 	echo
@@ -32,26 +32,42 @@ if [ ! -d "$1" ]; then
 	exit 1
 fi
 
-# Check AUR access right (Need more work)
-read -p "Is key loaded ? (y/N)?" choice
-case "${choice}" in 
-  y|Y ) echo;;
+
+# Extract pkgname
+pkgname=$1
+if [ "${pkgname: -1}" == "/" ]; then
+	pkgname=${pkgname:0:${#pkgname}-1}
+fi
+
+# Confirm push
+clear
+read -p "Push ${pkgname} to AUR ? (y/N)" choice
+case "$choice" in 
+  y|Y ) echo "Begin push ${pkgname}...";;
   * )
-		echo
-		./pushpkg --help
-		exit 1
-	;;
+    echo "Cancel push ${pkgname} !"
+    exit 1
+  ;;
 esac
 
-# Prepare
+# Init
 rm -Rf .tmp 2> /dev/null
 mkdir .tmp
 cd .tmp
-git clone ssh://aur@aur.archlinux.org/$1.git
+git clone ssh://aur@aur.archlinux.org/${pkgname}.git
+if [ ! "$?" = "0" ]; then
+	cd ..
+	rm -Rf .tmp
+	echo ""
+	echo ""
+  echo "No AUR ssh key loaded exiting..."
+  exit 1
+fi
 
-cd $1
+# Prepare
+cd ${pkgname}
 git rm *
-cp ../../$1/* .
+cp ../../${pkgname}/* .
 mksrcinfo
 git add *
 git commit -m "New version" .SRCINFO *
