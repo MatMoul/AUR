@@ -39,7 +39,7 @@ package() {
 	cp ${pkgdir}/etc/${_appname}/samples/all_off ${pkgdir}/etc/${_appname}/reboot
 	chmod -R 755 ${pkgdir}/etc
 	chmod -R 755 ${pkgdir}/usr
-	chmod -R 644 ${pkgdir}/etc/${_appname}/*
+	#chmod -R 644 ${pkgdir}/etc/${_appname}/*
 	chmod 644 ${pkgdir}/etc/udev/rules.d/${_appname}.rules
 	chmod 644 ${pkgdir}/usr/lib/systemd/system/*
 	chmod 755 ${pkgdir}/usr/share/licenses/${pkgname}
