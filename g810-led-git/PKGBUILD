@@ -13,7 +13,7 @@ depends=('hidapi')
 makedepends=('git' 'gcc' 'make')
 optdepends=('libusb: old implementation, for developpers')
 install=${pkgname}.install
-provides=("g213-led=${pkgver}" "g410-led=${pkgver}" "g610-led=${pkgver}" "g810-led=${pkgver}" "g910-led=${pkgver}")
+provides=("g213-led=${pkgver}" "g410-led=${pkgver}" "g610-led=${pkgver}" "g810-led=${pkgver}" "g910-led=${pkgver}" "gpro-led=${pkgver}")
 backup=("etc/${_appname}/profile" "etc/${_appname}/reboot" "etc/udev/rules.d/${_appname}.rules")
 options=(!emptydirs)
 source=("git://github.com/MatMoul/${_appname}.git")
