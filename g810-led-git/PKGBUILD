@@ -17,6 +17,7 @@ provides=("g213-led=${pkgver}" "g410-led=${pkgver}" "g610-led=${pkgver}" "g810-l
 backup=("etc/${_appname}/profile" "etc/${_appname}/reboot" "etc/udev/rules.d/${_appname}.rules")
 options=(!emptydirs)
 source=("git://github.com/MatMoul/${_appname}.git")
+#source=("git://github.com/MatMoul/${_appname}.git#branch=")
 md5sums=('SKIP')
 
 build() {
