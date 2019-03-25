@@ -1,10 +1,11 @@
-# Maintainer: Stephan Springer <buzo+arch@Lini.de>
+# Maintainer: MatMoul <matmoul@gmail.com>
+# Contributor: Stephan Springer <buzo+arch@Lini.de>
 # Contributor: kikadf <kikadf.01@gmail.com>
 
 pkgname=alpm_octopi_utils
 pkgver=1.0.0
 _commit=7f3a6c7e0e46bf9acb54af472f4fe45ab632d58c
-pkgrel=2
+pkgrel=3
 pkgdesc="Alpm utils for Octopi"
 url="https://octopiproject.wordpress.com/"
 arch=('i686' 'x86_64')
