@@ -11,7 +11,7 @@ _gitsha256='2eac6062b3589700b0d0e37c601f5bff4ad49dc59847be5950777d7e5a09685c'
 arch=('i686' 'x86_64')
 url="http://octopiproject.wordpress.com"
 license=('GPL2')
-depends=("octopi>=${pkgver}-${pkgrel}" 'knotifications')
+depends=("octopi-dev>=${pkgver}-${pkgrel}" 'knotifications')
 makedepends=('qt5-declarative' 'clang' 'qt5-tools')
 provides=('octopi-notifier')
 conflicts=('octopi-notifier-qt5')
