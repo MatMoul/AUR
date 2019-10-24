@@ -8,7 +8,7 @@ USE_DEV='1'
 pkgbase=octopi
 pkgname=('octopi')
 pkgver=0.9.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A powerful Pacman frontend using Qt5 libs"
 if [[ ${USE_DEV} == '1' ]]; then
 	_gitcommit=31060ae2b2f7c496c95b2262b8219c39b65e45be
