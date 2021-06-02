@@ -1,7 +1,7 @@
 From 87de5068f5ad5b03b77c3e071e7f2213460a75f1 Mon Sep 17 00:00:00 2001
 From: Arnaud Dovi <mr.dovi@gmail.com>
 Date: Tue, 1 Jun 2021 15:00:24 +0200
-Subject: [PATCH] Added pacman 6.0 support.
+Subject: [PATCH 1/2] Added pacman 6.0 support.
 
 ---
  src/alpm_config.vala       | 14 +++++++-------
@@ -120,3 +120,6 @@ index 35abf77..19c5915 100644
  
  		public int check_pgp_signature(out SigList siglist);
  	}
+-- 
+2.31.1
+
